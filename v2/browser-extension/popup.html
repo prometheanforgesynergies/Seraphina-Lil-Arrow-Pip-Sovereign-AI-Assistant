@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Lil Arrow Pip Bridge</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 320px;
+      background: #1a1a2e;
+      color: #e0e0ff;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      padding: 16px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #333355;
+    }
+    .header h1 {
+      font-size: 16px;
+      color: #ff8c00;
+    }
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      font-size: 13px;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #444;
+    }
+    .status-dot.connected { background: #00ff88; box-shadow: 0 0 6px #00ff88; }
+    .status-dot.disconnected { background: #ff4444; }
+    .tab-info {
+      background: #16213e;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 12px;
+      font-size: 12px;
+    }
+    .tab-info .label {
+      color: #8888aa;
+      margin-bottom: 4px;
+    }
+    .tab-info .value {
+      color: #ccccff;
+      word-break: break-all;
+    }
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    button {
+      background: #ff8c00;
+      color: #1a1a2e;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover { background: #ffa033; }
+    button.secondary {
+      background: #333355;
+      color: #ccccff;
+    }
+    button.secondary:hover { background: #444466; }
+    .footer {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid #333355;
+      font-size: 11px;
+      color: #666688;
+      text-align: center;
+    }
+    .footer .sigil {
+      color: #ff8c00;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Lil Arrow Pip</h1>
+  </div>
+
+  <div class="status">
+    <div class="status-dot" id="statusDot"></div>
+    <span id="statusText">Connecting...</span>
+  </div>
+
+  <div class="tab-info">
+    <div class="label">Current Tab</div>
+    <div class="value" id="tabTitle">-</div>
+    <div class="label" style="margin-top:8px">URL</div>
+    <div class="value" id="tabUrl">-</div>
+  </div>
+
+  <div class="actions">
+    <button id="btnSendContext">Send Context to Pip</button>
+    <button id="btnOpenHome" class="secondary">Open Pip Home</button>
+  </div>
+
+  <div class="footer">
+    Desktop AI Assistant <span class="sigil">>|<</span>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
